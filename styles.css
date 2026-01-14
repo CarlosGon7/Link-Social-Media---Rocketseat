@@ -40,7 +40,8 @@ body * {
 }
 
 #container {
-    width: 360px;
+    width: 100%;
+    max-width: 588px;
     height: 712px;
     /* margin: auto; */
     /* regra css não aplica no top e bottom*/
@@ -84,12 +85,13 @@ body * {
     top: 50%;
     transform: translateY(-50%);
     left: 0;
+
+    animation: slide-back .4s;
     transition: all .3 ease-in, background .3s ease;
 }
 
 .light #switch button {
-    right: 0;
-    left: initial;
+    animation: slide-in .4s forwards;
 }
 
 #switch span {
@@ -98,6 +100,7 @@ body * {
     height: 24px;
     background: var(--surface-color);
     border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     border-radius: 9999px;
     position: relative;
@@ -122,6 +125,7 @@ ul li a {
     border: 1px solid var(--stroke-color);
     border-radius: 8px;
 
+    backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
 
     font-weight: 500;
@@ -182,4 +186,32 @@ footer p a {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+@keyframes slide-in {
+    from {
+        left: 0;
+    }
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes slide-back {
+    from {
+        left: 50%;
+    }
+    to {
+        left: 0;
+    }
+}
+
+@media (min-width: 788px) {
+    :root{
+        --bg-url: url('./assets/bg-desktop.jpg');
+    }
+
+    .light {
+        --bg-url: url('assets/bg-desktop-light.jpg');
+    }
 }

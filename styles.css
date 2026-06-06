@@ -4,6 +4,7 @@
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
+    font-family: 'Inter', sans-serif;
 }
 
 :root {
@@ -35,7 +36,7 @@ body {
 }
 
 body * {
-    font-family: 'Inter', sans-serif;
+    
     color: var(--text-color);
 }
 
@@ -87,12 +88,23 @@ body * {
     left: 0;
 
     animation: slide-back .4s;
-    transition: all .3 ease-in, background .3s ease;
+
+    transition: all .1s ease ;
 }
 
 .light #switch button {
     animation: slide-in .4s forwards;
 }
+
+.light #switch button:hover {
+    outline: 8px solid var(--highlight-color);
+}
+
+#switch button:hover {
+    outline: 8px solid var(--highlight-color);
+}
+
+
 
 #switch span {
     display: block;
